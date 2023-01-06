@@ -35,30 +35,19 @@ switch ($action) {
 
 ?> 
 
-<!--<div class="rnav"><ul>
-<li><a href="config.php?display=callrecording&type=setup">Add Call Recording</a></li>-->
+<div class="rnav"><ul>
+<li><a href="config.php?display=callrecording&type=setup">Add Call Recording</a></li>
 <?php 
 
-/*echo '<li><a href="config.php?display=callrecording&amp;type='.$type.'">'._('Add Call Recording').'</a></li>';
+echo '<li><a href="config.php?display=callrecording&amp;type='.$type.'">'._('Add Call Recording').'</a></li>';
 foreach (callrecording_list() as $row) {
 	echo '<li><a href="config.php?display=callrecording&amp;type='.$type.'&amp;extdisplay='.$row['callrecording_id'].'" class="">'.$row['description'].'</a></li>';
-}*/
+}
 
 ?>
-<!--</ul></div>-->
+</ul></div>
 
-<!-- BOF New change -->
-<div class="rnav">
-<ul>
-    <li><a href="config.php?display=callrecording&type=<?=$type?>">All Call Recording</a></li>
-    <li>
-        <?php foreach(callrecording_list() as $row) { ?>
-            <li><a href="config.php?display=callrecording&type=<?=$type?>&extdisplay=<?=$row['callrecording_id']?>"><?=$row['description']?></a></li>
-        <?php } ?>
-    </li>
-</ul>
-</div>
-<!-- EOF New change-->
+
 
 <?php
 
