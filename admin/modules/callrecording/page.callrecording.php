@@ -38,10 +38,10 @@ switch ($action) {
 <!-- BOF New change -->
 <div class="rnav">
 <ul>
-    <li><a href="config.php?display=callrecording&type=<?php echo htmlspecialchars($type,ENT_QUOTES,’UTF-8’);?>">All Call Recording</a></li>
+    <li><a href="config.php?display=callrecording&type=<?php echo htmlspecialchars($type,ENT_QUOTES,'UTF-8');?>">All Call Recording</a></li>
     <li>
         <?php foreach(callrecording_list() as $row) { ?>
-            <li><a href="config.php?display=callrecording&type=<?php echo htmlspecialchars($type,ENT_QUOTES,’UTF-8’);?>&extdisplay=<?php echo htmlspecialchars($row['callrecording_id'],ENT_QUOTES,’UTF-8’);?>"><?php echo htmlspecialchars($row['description'],ENT_QUOTES,’UTF-8’);?></a></li>
+            <li><a href="config.php?display=callrecording&type=<?php echo htmlspecialchars($type,ENT_QUOTES,'UTF-8');?>&extdisplay=<?php echo htmlspecialchars($row['callrecording_id'],ENT_QUOTES,'UTF-8');?>"><?php echo htmlspecialchars($row['description'],ENT_QUOTES,'UTF-8');?></a></li>
         <?php } ?>
     </li>
 </ul>
