@@ -38,10 +38,10 @@ switch ($action) {
 <!-- BOF New change -->
 <div class="rnav">
 <ul>
-    <li><a href="config.php?display=callrecording&type=<?= $type; ?>">All Call Recording</a></li>
+    <li><a href="config.php?display=callrecording&type=setep">All Call Recording</a></li>
     <li>
         <?php foreach(callrecording_list() as $row) { ?>
-            <li><a href="config.php?display=callrecording&type=<?= $type; ?>&extdisplay=<?= $row['callrecording_id']; ?>"><?= $row['description']; ?></a></li>
+            <li><a href="config.php?display=callrecording&type=setep&extdisplay=setep">devcheck</a></li>
         <?php } ?>
     </li>
 </ul>
