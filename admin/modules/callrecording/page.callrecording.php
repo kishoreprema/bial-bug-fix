@@ -36,9 +36,10 @@ switch ($action) {
 ?> 
 
 <div class="rnav"><ul>
+<li><a href="config.php?display=callrecording&type=setup">Vishnu</a></li>
 <?php 
 
-echo '<li><a href="config.php?display=callrecording&amp;type='.$type.'">'._('Add Call Recording').'</a></li>';
+//echo '<li><a href="config.php?display=callrecording&amp;type='.$type.'">'._('Add Call Recording').'</a></li>';
 	//$callRecURL = '<li><a href="config.php?display=callrecording&amp;type='.$type.'">'._('Add Call Recording').'</a></li>';
 	//echo htmlentities($callRecURL);
 
