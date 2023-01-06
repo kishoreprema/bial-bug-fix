@@ -38,9 +38,9 @@ switch ($action) {
 <div class="rnav"><ul>
 <?php 
 
-//echo '<li><a href="config.php?display=callrecording&amp;type='.$type.'">'._('Add Call Recording').'</a></li>';
-	$callRecURL = '<li><a href="config.php?display=callrecording&amp;type='.$type.'">'._('Add Call Recording').'</a></li>';
-	echo htmlentities($callRecURL);
+echo '<li><a href="config.php?display=callrecording&amp;type='.$type.'">'._('Add Call Recording').'</a></li>';
+	//$callRecURL = '<li><a href="config.php?display=callrecording&amp;type='.$type.'">'._('Add Call Recording').'</a></li>';
+	//echo htmlentities($callRecURL);
 
 foreach (callrecording_list() as $row) {
 	echo '<li><a href="config.php?display=callrecording&amp;type='.$type.'&amp;extdisplay='.$row['callrecording_id'].'" class="">'.$row['description'].'</a></li>';
