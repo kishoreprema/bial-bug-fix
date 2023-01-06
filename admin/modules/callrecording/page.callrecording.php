@@ -36,7 +36,7 @@ switch ($action) {
 ?> 
 
 <div class="rnav"><ul>
-<li><a href="config.php?display=callrecording&type=setup">Vishnu</a></li>
+<li><a href="config.php?display=callrecording&type=setup">Add Call Recording</a></li>
 <?php 
 
 //echo '<li><a href="config.php?display=callrecording&amp;type='.$type.'">'._('Add Call Recording').'</a></li>';
