@@ -860,9 +860,11 @@ function hmac_md5($data, $key='') {
     // Uses mhash() extension if available
     if (extension_loaded('mhash')) {
       if ($key== '') {
-        $mhash=mhash(MHASH_MD5,$data);
+        //$mhash=mhash(MHASH_MD5,$data);
+	$mhash=hash('sha256',$data);
       } else {
-        $mhash=mhash(MHASH_MD5,$data,$key);
+        //$mhash=mhash(MHASH_MD5,$data,$key);
+	  $mhash=hash('sha256',$data,$key);
       }
       return $mhash;
     }
