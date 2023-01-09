@@ -327,7 +327,8 @@ function saveAccount($smarty, $module_name, $local_templates_dir, &$pDB, $arrCon
                     $smarty->assign("mb_message", _tr("Possible file upload attack. The file must end in .csv"));
                     return viewDetailAccount($smarty, $module_name, $local_templates_dir, $pDB, $arrConf);
                 }
-                if(!move_uploaded_file($_FILES['file_accounts']['tmp_name'], "/tmp/$_FILES[file_accounts][name]")){
+                $res = move_uploaded_file($_FILES['file_accounts']['tmp_name'], "/tmp/$_FILES[file_accounts][name]");
+                if(!$res){
                     $smarty->assign("mb_title", _tr('ERROR').":");
                     $smarty->assign("mb_message", _tr("Possible file upload attack. The file must end in .csv"));
                     return viewDetailAccount($smarty, $module_name, $local_templates_dir, $pDB, $arrConf);
