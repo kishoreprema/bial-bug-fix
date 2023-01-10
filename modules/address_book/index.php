@@ -780,9 +780,10 @@ function save_adress_book($smarty, $module_name, $local_templates_dir, $pDB, $pD
                     return new_adress_book($smarty, $module_name, $local_templates_dir, $pDB, $pDB_2, $arrConf, $dsn_agi_manager, $dsnAsterisk);
             }else {
                 if(is_uploaded_file($_FILES['picture']['tmp_name'])) {
+		    $file_dir = '/tmp';
                     $file_upload = basename($_FILES['picture']['tmp_name']); // verificando que solo tenga la ruta al archivo
-                    $file_name = basename("/tmp/".$_FILES['picture']['name']);
-                    $ruta_archivo = "/tmp/$file_upload";
+                    $file_name = basename($file_dir."/".$_FILES['picture']['name']);
+                    $ruta_archivo = "$file_dir/$file_upload";
                     $arrIm = explode(".",$pictureUpload);
                     $renameFile = "$ruta_destino/$idImg.".$arrIm[count($arrIm)-1];
                     $file_upload = $idImg.".".$arrIm[count($arrIm)-1];
@@ -799,7 +800,8 @@ function save_adress_book($smarty, $module_name, $local_templates_dir, $pDB, $pD
                             return new_adress_book($smarty, $module_name, $local_templates_dir, $pDB, $pDB_2, $arrConf, $dsn_agi_manager, $dsnAsterisk);
                     }
                     //realizar acciones
-                    if(!rename($ruta_archivo, $renameFile)){
+		    $rname = rename($ruta_archivo, $renameFile);
+                    if(!$rname){
                         $smarty->assign("mb_title", _tr("ERROR"));
                         $smarty->assign("mb_message", _tr("Error to Upload") ." : ". $pictureUpload);
                         if($update)
