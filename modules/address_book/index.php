@@ -785,7 +785,7 @@ function save_adress_book($smarty, $module_name, $local_templates_dir, $pDB, $pD
                     $file_name = basename($file_dir."/".$_FILES['picture']['name']);
                     $ruta_archivo = "$file_dir/$file_upload";
                     $arrIm = explode(".",$pictureUpload);
-                    $renameFile = "$ruta_destino/$idImg.".$arrIm[count($arrIm)-1];
+                    $renameFile = basename("$ruta_destino/$idImg.".$arrIm[count($arrIm)-1]);
                     $file_upload = $idImg.".".$arrIm[count($arrIm)-1];
                     $filesize = $_FILES['picture']['size'];
                     $filetype = $_FILES['picture']['type'];
