@@ -22,6 +22,7 @@
   $Id: index.php,v 1.1.1.1 2007/07/06 21:31:56 gcarrillo Exp $ */
 
 require_once "libs/paloSantoValidar.class.php";
+define("CUR_EXEC_PATH", "/usr/bin/issabel-helper");
 
 function _moduleContent(&$smarty, $module_name)
 {
@@ -85,7 +86,9 @@ function _moduleContent(&$smarty, $module_name)
         if ($bGuardar) {
             // Si no hay errores de validacion entonces ingreso las redes al archivo de host
             $output = NULL; $retval = NULL;
-            exec('/usr/bin/issabel-helper faxconfig --setfaxhosts '.implode(' ', $arrHostsFinal).' 2>&1', $output, $retval);
+            $exce_opt ='faxconfig --setfaxhosts ';
+            //exec('/usr/bin/issabel-helper faxconfig --setfaxhosts '.implode(' ', $arrHostsFinal).' 2>&1', $output, $retval);
+            exec(CUR_EXEC_PATH.' '.$exce_opt '.implode(' ', $arrHostsFinal).' 2>&1', $output, $retval);
             if ($retval == 0) {
             	$smarty->assign(array(
                     'mb_title'      =>  _tr('Message'),
