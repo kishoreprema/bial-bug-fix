@@ -8,6 +8,7 @@ $module_name=basename(getcwd());
 $documentRoot = $_SERVER["DOCUMENT_ROOT"];
 include_once "$documentRoot/libs/paloSantoDB.class.php";
 include_once "$documentRoot/libs/paloSantoACL.class.php";
+define("CUR_EXEC_PATH", "/usr/bin/issabel-helper");
 session_name("issabelSession");
 session_start();
 $issabel_user = (isset($_SESSION["issabel_user"]))?$_SESSION["issabel_user"]:null;
@@ -21,18 +22,24 @@ if(!$isUserAuth) { die('Unauthorized'); }
 if ($_REQUEST){
 
     if($_REQUEST['send'] == "test") {
-        $args = escapeshellarg("--test");            
-        $cmd = "/usr/bin/issabel-helper upnp_control --test";
+        $args = escapeshellarg("--test");
+        $exce_opt ='upnp_control --test';
+        //$cmd = "/usr/bin/issabel-helper upnp_control --test";
+        $cmd = CUR_EXEC_PATH.' '.$exce_opt;
     } else if($_REQUEST['send'] == 'add' && isset($_REQUEST['localport']) && isset($_REQUEST['externalport'])) {
         $localport = escapeshellarg($_REQUEST['localport']);
         $externalport =escapeshellarg($_REQUEST['externalport']);
         $protocol = $_REQUEST['protocol'];
-        $cmd = "/usr/bin/issabel-helper upnp_control --add $protocol -l $localport -e $externalport";            
+        $exce_opt ='upnp_control --add';
+        //$cmd = "/usr/bin/issabel-helper upnp_control --add $protocol -l $localport -e $externalport";
+        $cmd = CUR_EXEC_PATH." $exce_opt $protocol -l $localport -e $externalport";
         //echo '<script type="text/javascript">alert("' . $cmd . '")</script>';
     } else if($_REQUEST['send'] == 'del' && isset($_REQUEST['externalport'])) {
         $externalport =escapeshellarg($_REQUEST['externalport']);
         $protocol = $_REQUEST['protocol'];
-        $cmd = "/usr/bin/issabel-helper upnp_control --del $protocol -e $externalport";
+        $exce_opt ='upnp_control --del';
+        //$cmd = "/usr/bin/issabel-helper upnp_control --del $protocol -e $externalport";        
+        $cmd = CUR_EXEC_PATH." $exce_opt $protocol -e $externalport";
     }else{
         //
     }
