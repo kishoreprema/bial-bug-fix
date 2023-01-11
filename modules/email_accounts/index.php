@@ -394,7 +394,9 @@ function saveAccount($smarty, $module_name, $local_templates_dir, &$pDB, $arrCon
                         $message .= $errAccounts."<br />";
                 }
                 $smarty->assign("mb_message",$message);
-                unlink("/tmp/$_FILES[file_accounts][name]");
+                $rmFname = '/tmp/'.basename($_FILES[file_accounts][name]);       
+                //unlink("/tmp/$_FILES[file_accounts][name]");
+                unlink($rmFname);
                 return viewFormAccount($smarty, $module_name, $local_templates_dir, $pDB, $arrConf);
             }
             else{
