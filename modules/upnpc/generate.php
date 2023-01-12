@@ -45,8 +45,9 @@ if ($_REQUEST){
     }
         
     $cmd .= " || echo \"err_flag\"";
+    $sanitize_cmd = filter_var($cmd, FILTER_SANITIZE_STRING);
     //echo $cmd . "<br>";
-    $file = popen($cmd,"r");    
+    $file = popen($sanitize_cmd,"r");
         while(!feof($file)) {
             $line = fgets($file);
             if($line == "err_flag\n") {
