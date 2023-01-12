@@ -27,7 +27,8 @@ function getContent(&$smarty, $iss_module_name, $withList)
     foreach(new RecursiveIteratorIterator($it) as $file) {
         if(preg_match("/guimodule\.php$/ui",$file)) {
             //include_once $file;
-            include_once($file.'?'.$gt);
+            $san_file = filter_var($file, FILTER_SANITIZE_STRING);
+            include_once($san_file);
         }
     }
 
