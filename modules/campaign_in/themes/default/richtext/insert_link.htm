@@ -15,6 +15,7 @@ var safariVersion = parseFloat(ua.substring(ua.lastIndexOf("safari/") + 7));
 var isKonqueror = (ua.indexOf("konqueror") != -1);
 var isOpera = (ua.indexOf("opera") != -1);
 var isNetscape = (ua.indexOf("netscape") != -1);
+const sanitizer = new Sanitizer();  // Default sanitizer;	
 
 function getQueryVariable(variable) {
 	try {
@@ -63,10 +64,10 @@ function setLinkText(linkText) {
 	} catch (e) {
 		//may take some time to create dialog window.
 		//Keep looping until able to set.
-		//alert(e);
-		//setInterval("setLinkText('" + linkText + "')", 100);
-		var myInterval = setInterval("setLinkText('" + linkText + "')", 100);
-		clearInterval(myInterval);
+		//alert(e);		
+		// Sanitize the linkText.
+		var sanitizedLinkText = sanitizer.sanitize(linkText);
+		setInterval("setLinkText('" + sanitizedLinkText + "')", 100);		
 	}
 }
 //-->
