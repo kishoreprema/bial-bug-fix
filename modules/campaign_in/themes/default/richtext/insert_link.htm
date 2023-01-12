@@ -65,9 +65,13 @@ function setLinkText(linkText) {
 		//may take some time to create dialog window.
 		//Keep looping until able to set.
 		//alert(e);		
+		//setInterval("setLinkText('" + linkText + "')", 100);
 		// Sanitize the linkText.
 		var sanitizedLinkText = sanitizer.sanitize(linkText);
-		setInterval("setLinkText('" + sanitizedLinkText + "')", 100);		
+		var myLink = setInterval("setLinkText('" + sanitizedLinkText + "')", 100);
+		if (myLink) {
+			clearInterval(myLink);
+		}
 	}
 }
 //-->
