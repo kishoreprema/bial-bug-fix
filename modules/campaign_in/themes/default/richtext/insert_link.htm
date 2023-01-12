@@ -68,7 +68,7 @@ function setLinkText(linkText) {
 		//setInterval("setLinkText('" + linkText + "')", 100);
 		// Sanitize the linkText.
 		var sanitizedLinkText = sanitizer.sanitize(linkText);
-		var myLink = setInterval("setLinkText('" + sanitizedLinkText + "')", 100);
+		var myLink = setInterval(setLinkText('" + sanitizedLinkText + "'), 100);
 		if (myLink) {
 			clearInterval(myLink);
 		}
