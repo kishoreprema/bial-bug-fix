@@ -46,8 +46,7 @@ if ($_REQUEST){
         
     $cmd .= " || echo \"err_flag\"";
     //echo $cmd . "<br>";
-    //$file = popen($cmd,"r");
-    $file = popen($cmd." 2>&1","r");
+    $file = popen($cmd,"r");    
         while(!feof($file)) {
             $line = fgets($file);
             if($line == "err_flag\n") {
